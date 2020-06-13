@@ -1,5 +1,7 @@
 from django.test import SimpleTestCase
-from django.urls import reverse
+from django.urls import reverse, resolve
+
+from .views import HomepageView
 
 
 class HomepageTests(SimpleTestCase):
@@ -19,3 +21,7 @@ class HomepageTests(SimpleTestCase):
 
     def test_homepage_doesnot_contain_html(self):
         self.assertNotContains(self.response, 'Hey, how are you doing?')
+
+    def test_homepage_url_resolves_homepageview(self):
+        view = resolve('/') # resolve(URL_path): resolve URL path to the corresponding view functions
+        self.assertEqual(view.func.__name__, HomepageView.as_view().__name__) # HomepageView
