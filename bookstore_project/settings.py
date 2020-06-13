@@ -129,3 +129,10 @@ STATIC_URL = '/static/'
 
 # change User model to new custom model
 AUTH_USER_MODEL = 'users.CustomUser'
+
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
+
+
+
+
