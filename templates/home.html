@@ -1,7 +1,9 @@
 {% extends '_base.html' %}
+{% load static %}
 
 {% block content %}
   <h1>Homepage</h1>
+  <img class="booksize" src="{% static 'images/songvakhatvong.png' %}">
   {% if user.is_authenticated %}
     <p>Welcome {{ user.email }}</p>
     <a href="{% url 'logout' %}">Logout</a>
